@@ -3,6 +3,7 @@ import { FoodTicketHolders } from "./food/FoodTicketHolders.js";
 import { GameTicketHolders } from "./games/GameTicketHolders.js";
 import { SideshowTicketHolders } from "./sideshows/SideshowTicketHolders.js";
 import { FullTicketHolders } from "./fullPackage.js";
+import { ticketCounterGoUp } from "./ticketCounter.js";
 
 const contentTarget = document.querySelector(".entry");
 const eventHub = document.querySelector("#state-fair");
@@ -37,6 +38,7 @@ eventHub.addEventListener("click", (clickTarget) => {
 		default:
 			break;
 	}
+    ticketCounterGoUp();
 });
 
 export const TicketBooth = () => {
