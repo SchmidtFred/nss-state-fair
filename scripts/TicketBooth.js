@@ -2,6 +2,7 @@ import { RideTicketHolders } from "./rides/RideTicketHolders.js";
 import { FoodTicketHolders } from "./food/FoodTicketHolders.js";
 import { GameTicketHolders } from "./games/GameTicketHolders.js";
 import { SideshowTicketHolders } from "./sideshows/SideshowTicketHolders.js";
+import { FullTicketHolders } from "./fullPackage.js";
 
 const contentTarget = document.querySelector(".entry");
 const eventHub = document.querySelector("#state-fair");
@@ -26,9 +27,12 @@ eventHub.addEventListener("click", (clickTarget) => {
         case "sideshowTicket":
             const sideEvent = new CustomEvent("sideshowTicketPurchased");
             eventHub.dispatchEvent(sideEvent);
+            break;
 
         case "fullTicket":
-            const fullPackageEvent = new CustomEvent("");
+            const fullPackageEvent = new CustomEvent("fullTicketPurchased");
+            eventHub.dispatchEvent(fullPackageEvent);
+            break;
 
 		default:
 			break;
@@ -51,3 +55,4 @@ RideTicketHolders();
 FoodTicketHolders();
 GameTicketHolders();
 SideshowTicketHolders();
+FullTicketHolders();
